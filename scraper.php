@@ -9,7 +9,7 @@ exit();
 $id= scraperwiki::get_var('last_id');
 for($i=$id;$i<2000;$i++){
 $api="https://api.morph.io/luudanh/s-in-s/data.json?key=g7c0INT8tWZAeziAaS3U&query=select%20*%20from%20%27data%27%20limit%20$i,1";
-$json = scraperwiki::scrape($api
+$json = scraperwiki::scrape($api);
 $src = json_decode($json);
 echo $src[0]->$url;
 exit;
