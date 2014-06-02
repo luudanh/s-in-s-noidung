@@ -17,7 +17,8 @@ foreach($src as $val)
  $url = base64_decode($val->url);
 
 //exit;
-$url = str_replace("vietphrase.com/go/","",$url);
+echo $url = str_replace("vietphrase.com/go/","",$url);
+exit();
  $html_content = scraperwiki::scrape($url);
 $html = str_get_html($html_content);
 $data = array();
@@ -28,7 +29,7 @@ $noidung = $trr->find('div',0)->innertext;
 //$noidung = utf8_encode($noidung);
 if(mb_strlen($noidung) >1000){
     $j++;
-  scraperwiki::save_sqlite(array('id'),array('id'=> $j.'-'.$val->id, 'title'=>$val->title,'url'=> $val->url,'content'=>base64_encode($noidung),'order'=> $j,'num'=>$val->num,'reply'=>$val->reply));
+  scraperwiki::save_sqlite(array('id'),array('id'=> $j.$val->id, 'title'=>$val->title,'url'=> $val->url,'content'=>base64_encode($noidung),'order'=> $j,'num'=>$val->num,'reply'=>$val->reply));
 }
    
 }
