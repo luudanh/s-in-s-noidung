@@ -25,6 +25,8 @@ $data = array();
 $tr =  $html->find("div.postmessage div.t_msgfont");
 $j = 0;
 foreach($tr as $trr){
+ var_dump($trr);
+ exit();
 $noidung = $trr->find('div',0)->innertext;
 //$noidung = utf8_encode($noidung);
 if(mb_strlen($noidung) >1000){
