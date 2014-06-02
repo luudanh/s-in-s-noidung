@@ -1,11 +1,12 @@
 <?php
+require 'scraperwiki.php';
 require 'scraperwiki/simple_html_dom.php';
 scraperwiki::attach("s-in-s", "src");
 //scraperwiki::save_var('last_id', 1);
 //exit();
 $id= scraperwiki::get_var('last_id');
 for($i=$id;$i<1900;$i++){
- $src = scraperwiki::select("* from src.swdata limit $i,1");
+ $src = scraperwiki::select("* from src.data limit $i,1");
  $url = $src[0]['link'];
 $url = 'http://sexinsex.net/bbs/'.$url;
  $html_content = scraperwiki::scrape($url);
